@@ -72,7 +72,7 @@ public class RemarkCommand extends UndoableCommand {
         model.getFilteredPersonList();
         return new CommandResult(generateSuccessMessage(editedPerson));
     }
-    
+
      /**
      * Display success message after editing remarks
      */
