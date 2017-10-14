@@ -40,11 +40,6 @@ public class RemarkCommandTest {
     public void execute_addRemark_success() throws Exception {
         Person editedPerson = new PersonBuilder(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()))
                 .withRemark("Some remark").build();
-        //public void execute() throws Exception {
-        //assertCommandFailure(prepareCommand(), model, MESSAGE_NOT_IMPLEMENTED_YET);
-        //final String remark = "Some remark";
-//        assertCommandFailure(prepareCommand(INDEX_FIRST_PERSON, remark), model,
-//                String.format(MESSAGE_ARGUMENTS, INDEX_FIRST_PERSON.getOneBased(), remark));
         RemarkCommand remarkCommand = prepareCommand(INDEX_FIRST_PERSON, editedPerson.getRemark().value);
 
         String expectedMessage = String.format(RemarkCommand.MESSAGE_ADD_REMARK_SUCCESS, editedPerson);
