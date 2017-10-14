@@ -63,7 +63,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
     public void resetData(ReadOnlyAddressBook newData) {
-        requireNonNull(newData);
+        //requireNonNull(newData);
         try {
             setPersons(newData.getPersonList());
         } catch (DuplicatePersonException e) {
