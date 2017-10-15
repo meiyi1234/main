@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
+
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 
@@ -10,7 +11,11 @@ import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Remark;
 
+/**
+ * made used of parser from remark command and then inheritance
+ */
 public class RemarkCommandParser implements Parser<RemarkCommand> {
+
     /**
      * Parses the given {@code String} of arguments in the context of the RemarkCommand
      * and returns an RemarkCommand object for execution.
