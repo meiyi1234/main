@@ -137,10 +137,10 @@ public class AddCommandParserTest {
                         + INVALID_ADDRESS_DESC + REMARK_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 Address.MESSAGE_ADDRESS_CONSTRAINTS);
 
-        // invalid remark
-        assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                        + ADDRESS_DESC_BOB + INVALID_REMARK_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                Remark.MESSAGE_REMARK_CONSTRAINTS);
+//        // invalid remark
+//        assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+//                        + ADDRESS_DESC_BOB + INVALID_REMARK_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+//                Remark.MESSAGE_REMARK_CONSTRAINTS);
 
         // invalid tag
         assertParseFailure(parser, AddCommand.COMMAND_WORD + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
