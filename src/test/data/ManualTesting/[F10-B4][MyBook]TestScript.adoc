@@ -1,8 +1,16 @@
+
 = [MyBook] Test Script
+
 :toc:
 :toc-placement: preamble
 :imagesDir: images
 :stylesDir: stylesheets
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+endif::[]
+:repoURL: https://github.com/CS2103AUG2017-F10-B4/main
 
 By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 
@@ -86,7 +94,7 @@ This testscript contains only testing cases for new features. Testing of origina
 === Quick Add Function
 
 * *Add person with full details*
-** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/bryenNg@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/bryenNg@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204
 r/Likes curry chicken t/colleague
 ** Expected: person should be added with indicated inputs.
 
@@ -124,89 +132,71 @@ r/Likes curry chicken t/colleague
 
 === Persisting colored tag
 
-**Command:**
+* *Add tags that will persist after program restarts*
 
-* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
-* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
+** Command: add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123
+** Command: add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
 
-Restart the program.
-
-**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
+* *Restart the program.*
+** Expected GUI: Color tags should remain the same after program shuts down and initialize again.
 
 ---
 
 === Google Maps
 
-**Command:** +
-* clear
-* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney
-* gmap 1
+* *Run google maps using INDEX*
 
-**Expected GUI:** +
-Displays the google map of `311, Clementi Ave 2` in the browser panel.
+** Command: clear
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/joh@example.com a/311, Clementi Ave 2, #02-25
+** Command: gmap 1
+** Expected : Displayed Google map of Person: Alex Tan.
+** Expected GUI: Displays the google map of `311, Clementi Ave 2` in the browser panel.
 
-**Command:** +
-* clear +
-* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
-* add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
-* add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
-* gmap alex chew
+* *Run google maps using NAME*
 
-**Expected GUI:** +
-Displays google map of Alex Chew
+** Command: clear +
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
+** Command: add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
+** Command: add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
+** Command: gmap alex chew
+
+** Expected : Displayed Google map of Person: `Alex Chew`.
+** Expected GUI: Displays the google map of `Blk 30 Lorong 3 Serangoon Gardens` in the browser panel.
 
 ---
 
 === Theme Changer
 
-**Command:** +
-* theme list
+* *Change theme using INDEX*
 
-**Expected :** +
-Display a list of themes
+** Command: theme list
+** Expected Display a list of themes
+** Command: theme 2
+** Expected: Theme successfully changed to: Bootstrap3
+** Expected GUI: Changes to `Bootstrap3` theme
 
-**Command:** +
-* theme 2
-
-**Expected :** +
-Theme successfully changed to: Bootstrap3
-
-**Expected GUI:** +
-Changes to `Bootstrap3` theme
-
-**Command:** +
-* theme caspian
-
-**Expected :** +
-Theme successfully changed to: Caspian
-
-**Expected GUI:** +
-Changes to `Caspian` theme
+* *Change theme using NAME*
+** Command: theme caspian
+** Expected: Theme successfully changed to: Caspian
+** Expected GUI: Changes to `Caspian` theme
 
 ---
 
-=== Import
+=== Import function
 
-**Command:** +
-* clear
-* import data/[F10-B4][MyBook]SampleData.xml
+* *Do a fresh import*
 
-**Expected :** +
-Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xml
+** Command: clear
+** Command: import data/[F10-B4][MyBook]SampleData.xml
+** Expected: Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xm
+** Expected GUI: Added 20 persons
 
-**Expected GUI:** +
-Added 20 persons
-
-**Command:** +
-* clear
-* import data/[F10-B4][MyBook]SampleData2.xml
-
-**Expected :** +
-Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData2.xml
-
-**Expected GUI:** +
-* Added a new person called Choony.
-* Updated `Bernice Yu` remark section.
+* *Do an incremental import*
+** Command: clear
+** Command: import data/[F10-B4][MyBook]SampleData2.xml
+** Expected: Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData2.xml
+** Expected GUI: Added a new person called Choony.
+** Expected GUI: Updated `Bernice Yu` remark section.
 
 ---
 
