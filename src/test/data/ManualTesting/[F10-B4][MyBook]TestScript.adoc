@@ -1,64 +1,37 @@
-= Test Document
+= [MyBook] Test Script
 :toc:
 :toc-placement: preamble
 :imagesDir: images
 :stylesDir: stylesheets
 
-This is a test document referenced from docs/TestDocument.adoc. +
-We shall write our test scripts here. Feel free to replace anything.
+By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 
-By Choon
+*Welcome to the test script for MyBook application.*
 
-== Heading
+== Project Configuration
 
-=== Subheading
+1. Run the *[F10-B4][MyBook].jar* application to generate default files and folder. +
+2. Close the application. +
+3. Copy *[F10-B4][MyBook]SampleData.xml* to the generated *Data* folder. +
+4. Rename *[F10-B4][MyBook]SampleData.xml* to *addressbook.xml*. +
+5. Run the *[F10-B4][MyBook].jar* application to begin.
 
-.Bulleted lists
-* *bold*
-** _italics_
-*** `code`
-** [red]#red#
-
-.Numbered lists
-. first
-.. first i
-.. first ii
-.. first iii
-. second
-. third
-.. third i
-... third i i
+== Project Testing
 
 [NOTE]
-====
-This is a note.
-====
+**Command:** indicates the text to be entered into commandline input box.
 
-[WARNING]
-====
-This is a warning.
-====
+[NOTE]
+**Expected:** indicates the text to be displayed at the result box.
 
-[role="details"]
-****
-This is a custom block.
-****
+=== Persisting colored tag
+
+**Command:**
+
+* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
+* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
 
 
-****
-This is a sidebar block.
-****
+=== Feature 2
 
-=== Subheading II
-
-This tests line break. +
-This should be on a new line.
-
-http://google.com[This] is a link to an external site.
-
-<<subheading, This>> is a link to the previous section.
-
-image::Architecture.png[title="Architecture diagram", width="400"]
-____
-This is a quote block.
-____
+bla bla
