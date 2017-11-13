@@ -1,5 +1,15 @@
 # Choony93reused
-###### \resources\view\themes\bootstrap3\bootstrap3.css
+###### /resources/view/themes/caspian/caspian.css
+``` css
+.list-cell:filled:even {
+    -fx-background-color: #bbffff;
+}
+
+.list-cell:filled:odd {
+    -fx-background-color: #e2ffff;
+}
+```
+###### /resources/view/themes/bootstrap3/bootstrap3.css
 ``` css
 .list-cell:filled:even {
     -fx-background-color: #f6ffff;
@@ -18,7 +28,21 @@
 	-fx-text-fill: black;
 }
 ```
-###### \resources\view\themes\caspian\caspian.css
+###### /resources/view/themes/modena/whiteOnBlack.css
+``` css
+.list-cell:filled:even {
+    -fx-background-color: #000000;
+}
+
+.list-cell:filled:odd {
+    -fx-background-color: #323232;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #939393;
+}
+```
+###### /resources/view/themes/modena/modena.css
 ``` css
 .list-cell:filled:even {
     -fx-background-color: #bbffff;
@@ -27,8 +51,16 @@
 .list-cell:filled:odd {
     -fx-background-color: #e2ffff;
 }
+
+.list-cell:filled:selected {
+    -fx-background-color: #939393;
+}
+
+.list-view .list-cell:empty {
+    -fx-background: black;
+}
 ```
-###### \resources\view\themes\modena\blackOnWhite.css
+###### /resources/view/themes/modena/blackOnWhite.css
 ``` css
 .list-cell:filled:even {
     -fx-background-color: #e9e9e9;
@@ -48,39 +80,7 @@
     -fx-background: white;
 }
 ```
-###### \resources\view\themes\modena\modena.css
-``` css
-.list-cell:filled:even {
-    -fx-background-color: #bbffff;
-}
-
-.list-cell:filled:odd {
-    -fx-background-color: #e2ffff;
-}
-
-.list-cell:filled:selected {
-    -fx-background-color: #939393;
-}
-
-.list-view .list-cell:empty {
-    -fx-background: black;
-}
-```
-###### \resources\view\themes\modena\whiteOnBlack.css
-``` css
-.list-cell:filled:even {
-    -fx-background-color: #000000;
-}
-
-.list-cell:filled:odd {
-    -fx-background-color: #323232;
-}
-
-.list-cell:filled:selected {
-    -fx-background-color: #939393;
-}
-```
-###### \resources\view\themes\modena\yellowOnBlack.css
+###### /resources/view/themes/modena/yellowOnBlack.css
 ``` css
 .list-cell:filled:even {
     -fx-background-color: #333300;

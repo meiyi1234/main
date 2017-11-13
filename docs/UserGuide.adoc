@@ -382,8 +382,12 @@ Reinitializing of myBook will display the previous choice of theme.
 
 *Author*: Soh Hong Hwee
 
-Contacts in user myBook app that has `Important` or `important` tag will always appear at the top of the list. +
+Persons that have `Important` or `important` tag will always appear at the top of the list. +
+
 User using versions before v1.2 should add a new person with `important` tag first to enjoy this feature.
+
+See examples in link:#sorted-contacts-v1-3[Sorted Contacts] on its usage.
+
 // end::important[]
 
 //tag::birthday[]
@@ -402,8 +406,31 @@ Easy to identify who's birthday is coming up on that month.
 *Author*: Soh Hong Hwee
 
 All persons displayed will be sorted in ascending alphabetical order based on their name. +
-Using `List` command will always display all persons in sorted ascedning alphabetical order. +
-Persons with `Important` or `important` tag will be at the top in ascending alphabetical order then follow by other persons.
+
+Using `list` command will always display all persons in sorted ascending alphabetical order. +
+
+Persons with `Important` or `important` tag have higher priority and will be at the top in ascending alphabetical order then follow by others in ascending alphabetical order. +
+
+Examples:
+
+* If there is a person called `Zed` and another person called `Adam` and both does not have `important` tag then +
+`Adam` should appear before `Zed` in the list as shown in `Figure 3.11.1`.
+
+image::Adam-Zed.png[width="300"]
+_Figure 3.11.1 : Adam is before Zed_
+
+* If `Zed` has `important` tag then +
+`Zed` should appear before `Adam` in the list as shown in `Figure 3.11.2`.
+
+image::Zed-Adam.png[width="300"]
+_Figure 3.11.2 : Zed is before Adam_
+
+* If another person called `Aloy` with `important` tag is added then +
+`Aloy` will appear before `Zed` and is before `Adam` as shown in `Figure 3.11.3`.
+
+image::Aloy-Zed-Adam.png[width="300"]
+_Figure 3.11.3 : Aloy is before Zed which is before Adam_
+
 // end::sort[]
 
 // tag::gmap2[]
@@ -496,6 +523,7 @@ Removes the remark for the first person.
 *Author*: Soh Hong Hwee
 
 User can now add a person with just name and phone details. +
+
 All other details that are not provided will be filled in by default values as shown in `Figure 3.15.1`.
 
 image::Default_for_empty_fields.png[width="400"]
