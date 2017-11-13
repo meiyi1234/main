@@ -62,7 +62,7 @@ This testscript contains only testing cases for new features. Testing of origina
 
 ---
 
-=== Person with important tag at the top
+=== Person with important tag at the top and sorted
 
 * *Make `Zed Toh` to be at the top of list*
 ** Command: `list`
@@ -201,8 +201,12 @@ Added 20 persons
 
 === Remark Function
 
-**Command:** remark 1 r/Likes to drink coffee +
-**Expected:** remark should be added
+* *Add a remark to person without no remark at first index*
+** Command: clear
+** Command: add n/Alex p/12312312
+** Command: remark 1 r/Likes to drink coffee
+** Expected: a remark should be added to the person at first index
 
-**Command:** remark 1 r/ +which
-**Expected:** remark should be removed for the first person
+* *Attempt to add remark to peron with remark at first index*
+**Command:** remark 1 r/Likes to drink milo
+**Expected:** remark should be removed for the person at first index
