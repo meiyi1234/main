@@ -1,5 +1,4 @@
-
-= [MyBook] Test Script
+== [MyBook] Test Script
 :toc:
 :toc-placement: preamble
 :imagesDir: images
