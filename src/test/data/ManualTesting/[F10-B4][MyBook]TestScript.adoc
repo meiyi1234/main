@@ -47,114 +47,6 @@ This testscript contains only testing cases for new features. Testing of origina
 
 ---
 
-=== Add Functionality
-
-**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-**Expected:** person should be added
-
-**Command:** add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
-**Expected:** person should be added
-
-**Command:** add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-**Expected:** person should be added
-
-**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-**Expected:** person should not be added, duplicate contact (same name, phone, birthday, email and address)
-
-**`Command:** add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-
-**Expected:** person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
- same phone number, email, address and name as one of existing contact but has different birthday.
-
----
-
-=== Persisting colored tag
-
-**Command:**
-
-* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
-* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
-
-Restart the program.
-
-**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
-
----
-
-=== Google Maps
-
-**Command:** +
-* clear
-* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney
-* gmap 1
-
-**Expected GUI:** +
-Displays the google map of `311, Clementi Ave 2` in the browser panel.
-
-**Command:** +
-* clear
-* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
-* add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
-* add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
-* gmap alex tan
-
-**Expected GUI:** +
-Displays google map of Alex Tan
-
----
-
-=== Theme Changer
-
-**Command:** +
-* theme list
-
-**Expected :** +
-Display a list of themes
-
-**Command:** +
-* theme 2
-
-**Expected :** +
-Theme successfully changed to: Bootstrap3
-
-**Expected GUI:** +
-Changes to `Bootstrap3` theme
-
-**Command:** +
-* theme caspian
-
-**Expected :** +
-Theme successfully changed to: Caspian
-
-**Expected GUI:** +
-Changes to `Caspian` theme
-
----
-
-=== Import
-
-**Command:** +
-* clear
-* import data/[F10-B4][MyBook]SampleData.xml
-
-**Expected :** +
-Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xml
-
-**Expected GUI:** +
-Added 20 persons
-
----
-
-=== Remark Function
-
-**Command:** remark 1 r/Likes to drink coffee +
-**Expected:** remark should be added
-
-**Command:** remark 1 r/ +which
-**Expected:** remark should be removed for the first person
-
----
-
 === Find using different details
 
 * *Find `Tony Paker` and `Zed Toh` by `name`*
@@ -178,21 +70,144 @@ Added 20 persons
 
 ---
 
-=== Person with important tag at the top
+=== Person with important tag at the top and sorted
 
-* *Make `Zed Toh` to be at the top of list
+* *Make `Zed Toh` to be at the top of list*
 ** Command: `list`
 ** Expected GUI: Note that `Zed Toh` is at the most bottom
 ** Command: `edit 20 t/friends Important `
 ** Command: `list`
 ** Expected GUI: `Zed Toh` appears at the top at index 1.
 
-* *Make `Bernice Yu` to be at the top of list
+* *Make `Bernice Yu` to be at the top of list*
 ** Command: `edit 3 t/Important friends`
 ** Command: `list`
 ** Expected GUI: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
 
-* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`*
 ** Command: `edit 5 t/Important family`
 ** Command: `list`
 ** Expected GUI: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
+
+---
+
+=== Quick Add Function
+
+* *Add person with full details*
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/bryenNg@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204
+r/Likes curry chicken t/colleague
+** Expected: person should be added with indicated inputs.
+
+* *Add person with only name and phone number*
+** Command: undo
+** Command: add n/Alex Tan p/98765432  +
+** Expected: person should be added with indicated inputs with empty as default values.
+
+* *Add person with only name, phone number and birthday*
+** Command: undo
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 +
+** Expected: person should be added with indicated inputs with empty fields as default values.
+
+* *Add person with only name, phone number and email*
+** Command: undo
+** Command: add n/Bryen Ng p/98541222 e/bryenNg@example.com  +
+** Expected: person should be added with indicated inputs with empty fields as default values.
+
+* *Add person with only name, phone number and address*
+** Command: undo
+** Command: add n/Alex Tan p/98765432 a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
+** Expected: person should be added with indicated inputs with empty fields as default values.
+
+* *Add person with only name, phone number and remark*
+** Command: undo
+** Command: add n/Alex Tan p/98765432 r/Likes curry chicken +
+** Expected: person should be added with indicated inputs with empty fields as default values.
+
+* *Add person with only name, phone number and tag*
+** Command: undo
+** Command: add n/Alex Tan p/98765432 t/colleague +
+** Expected: person should be added with indicated inputs with empty fields as default values.
+
+---
+
+=== Persisting colored tag
+
+* *Add tags that will persist after program restarts*
+
+** Command: add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123
+** Command: add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
+
+* *Restart the program.*
+** Expected GUI: Color tags should remain the same after program shuts down and initialize again.
+
+---
+
+=== Google Maps
+
+* *Run google maps using INDEX*
+
+** Command: clear
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/joh@example.com a/311, Clementi Ave 2, #02-25
+** Command: gmap 1
+** Expected : Displayed Google map of Person: Alex Tan.
+** Expected GUI: Displays the google map of `311, Clementi Ave 2` in the browser panel.
+
+* *Run google maps using NAME*
+
+** Command: clear +
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
+** Command: add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
+** Command: add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
+** Command: gmap alex chew
+
+** Expected : Displayed Google map of Person: `Alex Chew`.
+** Expected GUI: Displays the google map of `Blk 30 Lorong 3 Serangoon Gardens` in the browser panel.
+
+---
+
+=== Theme Changer
+
+* *Change theme using INDEX*
+
+** Command: theme list
+** Expected Display a list of themes
+** Command: theme 2
+** Expected: Theme successfully changed to: Bootstrap3
+** Expected GUI: Changes to `Bootstrap3` theme
+
+* *Change theme using NAME*
+** Command: theme caspian
+** Expected: Theme successfully changed to: Caspian
+** Expected GUI: Changes to `Caspian` theme
+
+---
+
+=== Import function
+
+* *Do a fresh import*
+
+** Command: clear
+** Command: import data/[F10-B4][MyBook]SampleData.xml
+** Expected: Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xm
+** Expected GUI: Added 20 persons
+
+* *Do an incremental import*
+** Command: clear
+** Command: import data/[F10-B4][MyBook]SampleData2.xml
+** Expected: Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData2.xml
+** Expected GUI: Added a new person called Choony.
+** Expected GUI: Updated `Bernice Yu` remark section.
+
+---
+
+=== Remark Function
+
+* *Add a remark to person without no remark at first index*
+** Command: clear
+** Command: add n/Alex p/12312312
+** Command: remark 1 r/Likes to drink coffee
+** Expected: a remark should be added to the person at first index.
+
+* *Attempt to add remark to peron with remark at first index*
+** Command: remark 1 r/Likes to drink milo
+** Expected: remark should be removed for the person at first index.
