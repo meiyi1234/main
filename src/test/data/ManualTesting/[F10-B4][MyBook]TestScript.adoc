@@ -1,11 +1,3 @@
-= Test Document
-:toc:
-:toc-placement: preamble
-:imagesDir: images
-:stylesDir: stylesheets
-
-== Test Cases
-
 === Find using different details
 
 * *Find `Tony Paker` and `Zed Toh` by `name`*
