@@ -30,30 +30,11 @@ To allows others to know what are the special things that they wants to know or 
 ---
 #Start of Extract [from: Developer Guide]#
 
-include::../DeveloperGuide.adoc[tag=colortag]
+include::../DeveloperGuide.adoc[tag=remark]
 
 #End of Extract#
 
 ---
-
-=== Enhancement Added: Google Maps
-
-==== External behavior
-
----
-#Start of Extract [from: User Guide]#
-
-include::../UserGuide.adoc[tag=gmap]
-
-include::../UserGuide.adoc[tag=gmap2]
-
-#End of Extract#
-
----
-
-==== Justification
-
-Having just textual data of person's address is not user friendly nor informative at all.
 
 === Other contributions
 
