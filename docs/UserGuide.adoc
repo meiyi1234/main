@@ -382,7 +382,8 @@ Reinitializing of myBook will display the previous choice of theme.
 
 *Author*: Soh Hong Hwee
 
-Contacts in user myBook app that has `Important` or `important` tag will always appear at the top of the list. +
+Persons that have `Important` or `important` tag will always appear at the top of the list. +
+
 User using versions before v1.2 should add a new person with `important` tag first to enjoy this feature.
 // end::important[]
 
@@ -402,8 +403,19 @@ Easy to identify who's birthday is coming up on that month.
 *Author*: Soh Hong Hwee
 
 All persons displayed will be sorted in ascending alphabetical order based on their name. +
-Using `List` command will always display all persons in sorted ascedning alphabetical order. +
-Persons with `Important` or `important` tag will be at the top in ascending alphabetical order then follow by other persons.
+
+Using `list` command will always display all persons in sorted ascending alphabetical order. +
+
+Persons with `Important` or `important` tag have higher priority and will be at the top in ascending alphabetical order then follow by others in ascending alphabetical order. +
+
+Examples:
+
+* If there is a person called `Zed` and another person called `Adam` and both does not have `important` tag then +
+`Adam` should appear before `Zed` in the list as shown in Figure
+* If `Zed` has `important` tag then +
+`Zed` should appear before `Adam` in the list as shown in Figure
+* If another person called `Aloy` with `important` tag is added then +
+`Aloy` will appear before `Zed` and is before `Adam` as shown in Figure
 // end::sort[]
 
 // tag::gmap2[]
