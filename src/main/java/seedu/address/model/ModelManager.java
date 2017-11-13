@@ -110,7 +110,7 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void sortImportantTag() throws PersonNotFoundException, DuplicatePersonException {
+    public void filterImportantTag() throws PersonNotFoundException, DuplicatePersonException {
         ArrayList<ReadOnlyPerson> notImportantPersons = new ArrayList<ReadOnlyPerson>();
         ArrayList<ReadOnlyPerson> importantPersons = new ArrayList<ReadOnlyPerson>();
 
@@ -182,12 +182,12 @@ public class ModelManager extends ComponentManager implements Model {
         return FXCollections.unmodifiableObservableList(filteredPersons);
     }
 
+    //@@author Choony93
     /**
      * @param predicate
      * @return the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    //@@author Choony93
     @Override
     public List<ReadOnlyPerson> getPersonListByPredicate(Predicate<ReadOnlyPerson> predicate) {
         FilteredList<ReadOnlyPerson> filteredList = new FilteredList<>(filteredPersons);
