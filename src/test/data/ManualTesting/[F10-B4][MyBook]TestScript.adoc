@@ -113,12 +113,6 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 * `Command:` remark 1 r/
 `Expected:` remark should be removed for the first person
 
-
-== Delete Functionality
-
-* `Command:` delete 2
-`Expected:` 2nd person in the address book will be deleted
-
 == List Function
 
 * *Display list in ascending order
@@ -134,33 +128,11 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 Restart the program.
 
-**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
-
-=== Google Maps
-
-=== Add Functionality
-
-**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-**Expected:** person should be added
-
-**Command:** add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
-**Expected:** person should be added
-
-**Command:** add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-**Expected:** person should be added
-
-**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-**Expected:** person should not be added, duplicate contact (same name, phone, birthday, email and address)
-
-**`Command:** add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-
-**Expected:** person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
- same phone number, email, address and name as one of existing contact but has different birthday.
+**Expected**: Color tags should remain the same after program shuts down and initialize again.
 
 === Remark Functionality
 
 **Command:** remark 1 r/Likes to drink coffee +
-
 **Expected:** remark should be added
 
 **Command:** remark 1 r/ +which
@@ -168,22 +140,22 @@ Restart the program.
 
 == Add Functionality
 
-* *Add with all details
+* *Add with all details*
 ** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
 ** Expected: person should be added with all input details
 
-* *Add only name, phone
+* *Add only name, phone*
 ** Command: add n/Linda Chua p/98324422 
 ** Expected: person should be added with the rest as default values
 
-* *Add with only name, phone and birthday
+* *Add with only name, phone and birthday*
 ** Command: add n/Bryen Ng p/98541222 b/10/01/1996
 ** Expected: person should be added with some empty default values
 
-* *Add with only name, phone and email
+* *Add with only name, phone and email*
 ** Command: add n/Linda Chua p/98324422 e/lindaChua@example.com
 ** Expected: person should be added with some empty default values
 
-* *Add with only name, phone and address
+* *Add with only name, phone and address*
 ** Command: add n/Alex Tan p/98765432 a/311, Clementi Ave 2, #02-25 
 ** Expected: person should be added with some empty default values
