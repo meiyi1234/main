@@ -146,14 +146,14 @@ Restart the program.
 Displays the google map of `311, Clementi Ave 2` in the browser panel.
 
 **Command:** +
-* clear
+* clear +
 * add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
 * add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
 * add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
-* gmap alex tan
+* gmap alex chew
 
 **Expected GUI:** +
-Displays google map of Alex Tan
+Displays google map of Alex Chew
 
 ---
 
@@ -196,6 +196,17 @@ Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xml
 
 **Expected GUI:** +
 Added 20 persons
+
+**Command:** +
+* clear
+* import data/[F10-B4][MyBook]SampleData2.xml
+
+**Expected :** +
+Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData2.xml
+
+**Expected GUI:** +
+* Added a new person called Choony.
+* Updated `Bernice Yu` remark section.
 
 ---
 
