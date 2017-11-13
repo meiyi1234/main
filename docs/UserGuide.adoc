@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= MyBook - User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -61,7 +61,7 @@ Format: `help`
 
 Adds a person to the address book +
 Only `NAME` and `PHONE NUMBER` are compulsory fields +
-Format: `add n/NAME p/PHONE_NUMBER b/BIRTHDAY e/EMAIL a/ADDRESS [t/TAG]...`
+Format: `add n/NAME p/PHONE_NUMBER b/BIRTHDAY e/EMAIL a/ADDRESS r/REMARK [t/TAG]...`
 
 [TIP]
 A person can have any number of tags (including 0)
@@ -70,6 +70,7 @@ Examples:
 
 * `add n/John Doe p/98765432 b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/jogging`
 * `add n/Adriana Danny p/98765432`
 // end::add[]
 
@@ -121,19 +122,6 @@ Examples:
 Returns `john` and `John Doe`
 * `find Betsy Tim John` +
 Returns any person having names `Betsy`, `Tim`, or `John`
-
-=== Remarking a person: `add`
-
-Remarks a person to the address book +
-Format: `remark INDEX r/[REMARK]`
-
-Examples:
-
-* `remark 1 r/Likes to drink coffee`
-Edits the remark for the first person to Likes to drink coffee.
-* `remark 1 r/`
-Removes the remark for the first person.
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/jogging`
 
 === Deleting a person : `delete`
 

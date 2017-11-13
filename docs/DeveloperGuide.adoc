@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+= MyBook - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -950,6 +950,7 @@ The user can use size of 100X100 of file 'png','jpg' or 'jpeg'
 
 It is implemented to add photo detail so that relevant to the user to identify user. i.e. if both user have same/similar pronunciation of name.
 
+---
 //end::photo[]
 
 // tag::remark[]
@@ -998,7 +999,6 @@ a new list in "add" command without the remark command.
 **Pros:** Allows the user to take the important remark for the new person. +
 **Cons:** NIL.
 
----
 // end::remark[]
 
 == Documentation
