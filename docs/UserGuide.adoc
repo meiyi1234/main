@@ -567,6 +567,7 @@ Add new persons from addressbook2 from local project +
 folder *data* into local addressbook.
 // end::import1[]
 
+// tag::remark[]
 === Add a remark in `add` command (v1.4)
 
 *Author*: Teh Bee Yee
@@ -584,6 +585,7 @@ Examples:
 Adds a remark together with name, phone, email and address for the new person in the list.
 * `add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com r/Jogging t/criminal t/friend.` +
 Adds a remark together with name, phone, email, address and tag for the new person in the list.
+// end::remark[]
 
 // tag::import2[]
 === Import feature from `File` toolbar (v1.5)

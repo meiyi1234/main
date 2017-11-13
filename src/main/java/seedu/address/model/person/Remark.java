@@ -1,10 +1,10 @@
 package seedu.address.model.person;
-
+//@@author meiyi1234
 //import static java.util.Objects.requireNonNull;
 /**
  * Represents a Person's remark in the address book.
  */
-//@@author meiyi1234
+
 public class Remark {
 
     public static final String MESSAGE_REMARK_CONSTRAINTS =

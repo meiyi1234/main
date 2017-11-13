@@ -1,5 +1,5 @@
 package seedu.address.logic.parser;
-
+//@@author meiyi1234
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.model.person.Remark;
-//@@author meiyi1234
+
 public class RemarkCommandParserTest {
     private RemarkCommandParser parser = new RemarkCommandParser();
 

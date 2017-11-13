@@ -952,6 +952,54 @@ It is implemented to add photo detail so that relevant to the user to identify u
 
 //end::photo[]
 
+// tag::remark[]
+=== Add remark to person
+
+The "remark" command is to add a remark to the person together with name, phone, address, email, birthday or tag.
+
+There are two ways the user can utilize the remark feature, first by entering the remark command into CommandBox for existing list or adding the remark +
+together with the rest of the information(name, phone, address etc) when creating a new contatc list.
+
+==== Method 1
+
+The `RemarkCommand` object sequence diagram can be seen below:
+
+image::RemarkLogicSequenceDiagram.png[width="750"]
+_Figure 3.14.1.1 : RemarkCommand parser sequence diagram_
+
+As we can see, `RemarkCommand` object is created after input has been validated from the `AddressBookParser`.
+
+[source,java]
+----
+public RemarkCommand(Index index, Remark remark) {
+        requireNonNull(index);
+        requireNonNull(remark);
+
+        this.index = index;
+        this.remark = remark;
+    }
+----
+
+==== Method 2
+
+The second way is to add the remark using "add" command.
+
+We can create a new list by adding name, phone, email, address, birthday, remark and tag at a same time, so the user would not forget to key in the imporant remark after creating +
+a new list in "add" command without the remark command.
+
+==== Design Considerations
+
+**Aspect:** add a remark for existing or new person +
+**Alternative 1 (current choice):** Use "remark" command to add the remark for exisiting person. +
+**Pros:** Allows the user to key in the remark for another time instead of now that the user do not know what is their remark now +
+**Cons:** NIL +
+**Alternative 2:** Use "add" command to add remark. +
+**Pros:** Allows the user to take the important remark for the new person. +
+**Cons:** NIL.
+
+---
+// end::remark[]
+
 == Documentation
 
 We use asciidoc for writing documentation.
