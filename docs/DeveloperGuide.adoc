@@ -930,6 +930,36 @@ The `birthday` command is an improved version from `add` command. It allows user
 
 The user can use this command with 'b/dd/mm/yyyy'
 
+[source, java]
+----
+  public static final String BIRTHDAY_VALIDATION_REGEX = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
+
+  public static boolean isValidBirthday(String test) {
+          return test.matches(BIRTHDAY_VALIDATION_REGEX);
+      }
+
+  public Birthday(String birthday) throws IllegalValueException {
+          String trimmedBirthday = (birthday != null) ? birthday : "01/01/1991";
+
+          if (isValidBirthday(trimmedBirthday) && !birthday.equals("No birthday")) {
+              String birthdayNew = trimmedBirthday.replaceAll("[/]", "");
+              isValidBirthdayValue(birthdayNew);
+              if (birthdayNew.equals(NO_BIRTHDAY_DEFAULT)) {
+                  this.value = "No birthday";
+              } else {
+                  this.value = trimmedBirthday;
+              }
+          } else if (birthday.equals("No birthday")) {
+              this.value = "No birthday";
+          } else {
+              throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
+          }
+      }
+
+----
+
+Person (s) with empty birthday filed will be showing "No birthday".
+
 ==== Design Considerations
 
 It is implemented to add birthday detail so that relevant to the user to identify the birthday for up coming event. i.e. if a user want to have an event they can identify who's birthday is on this month or next month.
