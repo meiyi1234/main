@@ -4,61 +4,45 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-This is a test document referenced from docs/TestDocument.adoc. +
-We shall write our test scripts here. Feel free to replace anything.
+== Test Cases
 
-By Choon
+=== Find using different details
 
-== Heading
+* *Find `Tony Paker` and `Zed Toh` by `name`*
+** Command: `finds n/Tony Zed`
+** Expectation Behavior: `Tony Paker` and `Zed Toh` listed.
 
-=== Subheading
+* *Find `Tony Paker` and `Zed Toh` by `phone number`*
+** Command: `list`
+** Command: `finds p/82315756 9237841`
+** Expectation Behavior: `Tony Paker` and `Zed Toh` will be listed.
 
-.Bulleted lists
-* *bold*
-** _italics_
-*** `code`
-** [red]#red#
+* *Find `Tony Paker` and `Zed Toh` by `email`*
+** Command: `list`
+** Command: `finds e/tonyparker@example.com zedtoh@example.com`
+** Expectation Behavior: `Tony Paker` and `Zed Toh` will be listed.
 
-.Numbered lists
-. first
-.. first i
-.. first ii
-.. first iii
-. second
-. third
-.. third i
-... third i i
+* *Find `Tony Paker` and `Zed Toh` by `tag`*
+** Command: `list`
+** Command: `finds t/[classmates] [friends]`
+** Expectation Behavior: `Tony Paker`, `Zed Toh` and 8 more people will be listed.
 
-[NOTE]
-====
-This is a note.
-====
+=== Person with important tag at the top
 
-[WARNING]
-====
-This is a warning.
-====
+* * Make `Zed Toh` to be at the top of list
+** Command: `list`
+** Expected Behaviour: Note that `Zed Toh` is at the most bottom
+** Command: `edit 20 t/friends Important `
+** Command: `list`
+** Expected Behaviour: `Zed Toh` appears at the top at index 1.
 
-[role="details"]
-****
-This is a custom block.
-****
+* * Make `Bernice Yu` to be at the top of list
+** Command: `edit 3 t/Important friends`
+** Command: `list`
+** Expected Behaviour: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
 
+* * Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+** Command: `edit 5 t/Important family`
+** Command: `list`
+** Expected Behaviour: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
 
-****
-This is a sidebar block.
-****
-
-=== Subheading II
-
-This tests line break. +
-This should be on a new line.
-
-http://google.com[This] is a link to an external site.
-
-<<subheading, This>> is a link to the previous section.
-
-image::Architecture.png[title="Architecture diagram", width="400"]
-____
-This is a quote block.
-____
