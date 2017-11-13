@@ -386,6 +386,8 @@ See examples in link:#sorted-contacts-v1-3[Sorted Contacts] on its usage.
 All persons can now add in their birthday on the command line
 Format `b/dd/mm/yyyy` allow Mybook to keep track all students birthday
 Easy to identify who's birthday is coming up on that month.
+If user keep in wrong birthday format, or invalid date the system will tell you.
+eg.(29/02/2001) is not a leap year and there is no 29.
 //end::birthday[]
 
 // tag::sort[]
