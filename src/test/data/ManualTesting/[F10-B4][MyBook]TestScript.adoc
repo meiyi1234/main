@@ -111,34 +111,6 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 * `Command:` delete 2
 `Expected:` 2nd person in the address book will be deleted
-=======
-
-== Introduction
-This documents
-
-== Basic Commands
-
-You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/docs/UserGuide.adoc .It shows all the commands we have in the application.
-
-== Testing
-
-== Add Functionality
-
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should be added
-
-* `Command:` add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
-`Expected:` person should be added
-
-* `Command:` add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added
-
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should not be added, duplicate contact (same name, phone, birthday, email and address)
-
-* `Command:` add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
- same phone number, email, address and name as one of existing contact but has different birthday.
 
 == List Function
 
@@ -156,7 +128,6 @@ Restart the program.
 
 **Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
 
-=======
 === Google Maps
 
 === Add Functionality
@@ -210,19 +181,19 @@ Restart the program.
 
 === Person with important tag at the top
 
-* * Make `Zed Toh` to be at the top of list
+* *Make `Zed Toh` to be at the top of list
 ** Command: `list`
 ** Expected Behaviour: Note that `Zed Toh` is at the most bottom
 ** Command: `edit 20 t/friends Important `
 ** Command: `list`
 ** Expected Behaviour: `Zed Toh` appears at the top at index 1.
 
-* * Make `Bernice Yu` to be at the top of list
+* *Make `Bernice Yu` to be at the top of list
 ** Command: `edit 3 t/Important friends`
 ** Command: `list`
 ** Expected Behaviour: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
 
-* * Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
 ** Command: `edit 5 t/Important family`
 ** Command: `list`
 ** Expected Behaviour: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
