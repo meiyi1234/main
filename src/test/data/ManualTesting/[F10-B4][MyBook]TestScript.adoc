@@ -79,10 +79,10 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 == Remark Functionality
 
-* `Command:` remark 1 r/Likes to drink coffee
+* `Command:` remark 1 r/Likes to drink coffee +
 `Expected:` remark should be added
 
-* `Command:` remark 1 r/
+* `Command:` remark 1 r/ +
 `Expected:` remark should be removed for the first person
 
 
