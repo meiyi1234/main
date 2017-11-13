@@ -205,8 +205,8 @@ Added 20 persons
 ** Command: clear
 ** Command: add n/Alex p/12312312
 ** Command: remark 1 r/Likes to drink coffee
-** Expected: a remark should be added to the person at first index
+** Expected: a remark should be added to the person at first index.
 
 * *Attempt to add remark to peron with remark at first index*
-**Command:** remark 1 r/Likes to drink milo
-**Expected:** remark should be removed for the person at first index
+** Command: remark 1 r/Likes to drink milo
+** Expected: remark should be removed for the person at first index.
