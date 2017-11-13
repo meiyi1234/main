@@ -36,12 +36,9 @@ This testscript contains only testing cases for new features. Testing of origina
 [NOTE]
 **Expected GUI:** indicates the expected GUI changes.
 
-== Introduction
-This documents
-
 == Basic Commands
 
-You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/docs/UserGuide.adoc .It shows all the commands we have in the application.
+You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/docs/UserGuide.adoc. It shows all the commands we have in the application.
 
 == Testing
 
