@@ -42,28 +42,45 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 == Testing
 
-== Add Functionality
+== Find using different details
 
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should be added
+* *Find `Tony Paker` and `Zed Toh` by `name`*
+** Command: `finds n/Tony Zed`
+** Expectation: `Tony Paker` and `Zed Toh` listed.
 
-* `Command:` add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
-`Expected:` person should be added
+* *Find `Tony Paker` and `Zed Toh` by `phone number`*
+** Command: `list`
+** Command: `finds p/82315756 9237841`
+** Expectation: `Tony Paker` and `Zed Toh` will be listed.
 
-* `Command:` add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added
+* *Find `Tony Paker` and `Zed Toh` by `email`*
+** Command: `list`
+** Command: `finds e/tonyparker@example.com zedtoh@example.com`
+** Expectation: `Tony Paker` and `Zed Toh` will be listed.
 
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should not be added, duplicate contact (same name, phone, birthday, email and address)
+* *Find `Tony Paker` and `Zed Toh` by `tag`*
+** Command: `list`
+** Command: `finds t/[classmates] [friends]`
+** Expectation: `Tony Paker`, `Zed Toh` and 8 more people will be listed.
 
-* `Command:` add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
- same phone number, email, address and name as one of existing contact but has different birthday.
+=== Person with important tag at the top
 
-== List Function
+* *Make `Zed Toh` to be at the top of list
+** Command: `list`
+** Expected Behaviour: Note that `Zed Toh` is at the most bottom
+** Command: `edit 20 t/friends Important `
+** Command: `list`
+** Expected: `Zed Toh` appears at the top at index 1.
 
-* `Command:` list
-`Expected:` Shows a list of all persons in the address book in sorted ascending alphabetical order.
+* *Make `Bernice Yu` to be at the top of list
+** Command: `edit 3 t/Important friends`
+** Command: `list`
+** Expected: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
+
+* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+** Command: `edit 5 t/Important family`
+** Command: `list`
+** Expected: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
 
 == Edit Functionality
 
@@ -88,16 +105,6 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 * `Command:` edit 4 r/running
 `Expected:` Person should not be edited
 
-
-== Find functionality
-
-* `Command:`
-`Expected:`
-
-* `Command:`
-`Expected:`
-
-
 == Remark Functionality
 
 * `Command:` remark 1 r/Likes to drink coffee
@@ -114,8 +121,9 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 == List Function
 
-* `Command:` list
-`Expected:` Shows a list of all persons in the address book in sorted ascending alphabetical order.
+* *Display list in ascending order
+** Command: list
+** Expected: Shows a list of all persons in the address book in sorted ascending alphabetical order.
 
 === Persisting colored tag
 
@@ -158,42 +166,24 @@ Restart the program.
 **Command:** remark 1 r/ +which
 **Expected:** remark should be removed for the first person
 
-== Find using different details
+== Add Functionality
 
-* *Find `Tony Paker` and `Zed Toh` by `name`*
-** Command: `finds n/Tony Zed`
-** Expectation Behavior: `Tony Paker` and `Zed Toh` listed.
+* *Add with all details
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
+** Expected: person should be added with all input details
 
-* *Find `Tony Paker` and `Zed Toh` by `phone number`*
-** Command: `list`
-** Command: `finds p/82315756 9237841`
-** Expectation Behavior: `Tony Paker` and `Zed Toh` will be listed.
+* *Add only name, phone
+** Command: add n/Linda Chua p/98324422 
+** Expected: person should be added with the rest as default values
 
-* *Find `Tony Paker` and `Zed Toh` by `email`*
-** Command: `list`
-** Command: `finds e/tonyparker@example.com zedtoh@example.com`
-** Expectation Behavior: `Tony Paker` and `Zed Toh` will be listed.
+* *Add with only name, phone and birthday
+** Command: add n/Bryen Ng p/98541222 b/10/01/1996
+** Expected: person should be added with some empty default values
 
-* *Find `Tony Paker` and `Zed Toh` by `tag`*
-** Command: `list`
-** Command: `finds t/[classmates] [friends]`
-** Expectation Behavior: `Tony Paker`, `Zed Toh` and 8 more people will be listed.
+* *Add with only name, phone and email
+** Command: add n/Linda Chua p/98324422 e/lindaChua@example.com
+** Expected: person should be added with some empty default values
 
-=== Person with important tag at the top
-
-* *Make `Zed Toh` to be at the top of list
-** Command: `list`
-** Expected Behaviour: Note that `Zed Toh` is at the most bottom
-** Command: `edit 20 t/friends Important `
-** Command: `list`
-** Expected Behaviour: `Zed Toh` appears at the top at index 1.
-
-* *Make `Bernice Yu` to be at the top of list
-** Command: `edit 3 t/Important friends`
-** Command: `list`
-** Expected Behaviour: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
-
-* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
-** Command: `edit 5 t/Important family`
-** Command: `list`
-** Expected Behaviour: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
+* *Add with only name, phone and address
+** Command: add n/Alex Tan p/98765432 a/311, Clementi Ave 2, #02-25 
+** Expected: person should be added with some empty default values
