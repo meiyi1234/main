@@ -19,11 +19,12 @@ By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 == Project Configuration
 
 1. Run the *[F10-B4][MyBook].jar* application to generate default files and folder. +
-2. Close the application. +
-3. Copy *[F10-B4][MyBook]SampleData.xml* to the generated *Data* folder. +
-4. Copy *[F10-B4][MyBook]SampleData2.xml* to the generated *Data* folder. +
-5. Duplicate *[F10-B4][MyBook]SampleData.xml* and replace it with *addressbook.xml*. +
-6. Run the *[F10-B4][MyBook].jar* application to begin.
+2. Enter `list` in command box. +
+3. Close the application. +
+4. Copy *[F10-B4][MyBook]SampleData.xml* to the generated *Data* folder. +
+5. Copy *[F10-B4][MyBook]SampleData2.xml* to the generated *Data* folder. +
+6. Duplicate *[F10-B4][MyBook]SampleData.xml* and replace it with *addressbook.xml*. +
+7. Run the *[F10-B4][MyBook].jar* application to begin. 
 
 [NOTE]
 Data folder should now have 3 XML files, namely: +
@@ -75,17 +76,17 @@ This testscript contains only testing cases for new features. Testing of origina
 * *Make `Zed Toh` to be at the top of list*
 ** Command: `list`
 ** Expected GUI: Note that `Zed Toh` is at the most bottom
-** Command: `edit 20 t/friends Important `
+** Command: `edit 20 t/friends t/Important`
 ** Command: `list`
 ** Expected GUI: `Zed Toh` appears at the top at index 1.
 
 * *Make `Bernice Yu` to be at the top of list*
-** Command: `edit 3 t/Important friends`
+** Command: `edit 3 t/Important t/friends`
 ** Command: `list`
 ** Expected GUI: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
 
 * *Make `David Li` to be in between `Bernice Yu and `Zed Toh`*
-** Command: `edit 5 t/Important family`
+** Command: `edit 5 t/Important t/family`
 ** Command: `list`
 ** Expected GUI: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
 
