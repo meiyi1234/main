@@ -83,12 +83,12 @@ This testscript contains only testing cases for new features. Testing of origina
 
 ---
 
-=== Quick Add Functiona
+=== Quick Add Function
 
 * *Add person with full details*
-**Command: add n/Alex Tan p/98765432 b/21/07/1991 e/bryenNg@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 
+** Command: add n/Alex Tan p/98765432 b/21/07/1991 e/bryenNg@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 
 r/Likes curry chicken t/colleague
-**Expected: person should be added with indicated inputs.
+** Expected: person should be added with indicated inputs.
 
 * *Add person with only name and phone number*
 ** Command: undo
@@ -105,17 +105,17 @@ r/Likes curry chicken t/colleague
 ** Command: add n/Bryen Ng p/98541222 e/bryenNg@example.com  +
 ** Expected: person should be added with indicated inputs with empty fields as default values.
 
-* * Add person with only name, phone number and address*
+* *Add person with only name, phone number and address*
 ** Command: undo
 ** Command: add n/Alex Tan p/98765432 a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
 ** Expected: person should be added with indicated inputs with empty fields as default values.
 
-* * Add person with only name, phone number and remark*
+* *Add person with only name, phone number and remark*
 ** Command: undo
 ** Command: add n/Alex Tan p/98765432 r/Likes curry chicken +
 ** Expected: person should be added with indicated inputs with empty fields as default values.
 
-* * Add person with only name, phone number and tag*
+* *Add person with only name, phone number and tag*
 ** Command: undo
 ** Command: add n/Alex Tan p/98765432 t/colleague +
 ** Expected: person should be added with indicated inputs with empty fields as default values.
