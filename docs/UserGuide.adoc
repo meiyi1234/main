@@ -416,19 +416,19 @@ Examples:
 * If there is a person called `Zed` and another person called `Adam` and both does not have `important` tag then +
 `Adam` should appear before `Zed` in the list as shown in `Figure 3.11.1`.
 
-image::Adam-Zed.png[width="400"]
+image::Adam-Zed.png[width="300"]
 _Figure 3.11.1 : Adam is before Zed_
 
 * If `Zed` has `important` tag then +
 `Zed` should appear before `Adam` in the list as shown in `Figure 3.11.2`.
 
-image::Zed-Adam.png[width="400"]
+image::Zed-Adam.png[width="300"]
 _Figure 3.11.2 : Zed is before Adam_
 
 * If another person called `Aloy` with `important` tag is added then +
 `Aloy` will appear before `Zed` and is before `Adam` as shown in `Figure 3.11.3`.
 
-image::Aloy-Zed-Adam.png[width="400"]
+image::Aloy-Zed-Adam.png[width="300"]
 _Figure 3.11.3 : Aloy is before Zed which is before Adam_
 
 // end::sort[]
