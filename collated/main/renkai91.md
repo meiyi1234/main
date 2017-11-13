@@ -1,5 +1,5 @@
 # renkai91
-###### /java/seedu/address/logic/commands/EditCommand.java
+###### \java\seedu\address\logic\commands\EditCommand.java
 ``` java
         public void setBirthday(Birthday birthday) {
             this.birthday = birthday;
@@ -9,7 +9,7 @@
             return Optional.ofNullable(birthday);
         }
 ```
-###### /java/seedu/address/logic/parser/ParserUtil.java
+###### \java\seedu\address\logic\parser\ParserUtil.java
 ``` java
     /**
      * Parses a {@code Optional<String> birthday} into an {@code Optional<Birthday>} if {@code Birthday} is present.
@@ -20,7 +20,7 @@
         return birthday.isPresent() ? Optional.of(new Birthday(birthday.get())) : Optional.empty();
     }
 ```
-###### /java/seedu/address/model/person/Birthday.java
+###### \java\seedu\address\model\person\Birthday.java
 ``` java
 /**
  * Represents a Person's birthday in the address book.
@@ -29,12 +29,15 @@
 public class Birthday {
 
     public static final String MESSAGE_BIRTHDAY_CONSTRAINTS = "Person's birthday should be in format: DD/MM/YYYY";
-    public static final String MESSAGE_BIRTHDAY2_CONSTRAINTS = "day or month more the 31 or 12";
-    public static final String MESSAGE_BIRTHDAY3_CONSTRAINTS = "1,3,5,7,8,10,12 only have 31days";
-    public static final String MESSAGE_BIRTHDAY4_CONSTRAINTS = "Feb don't have 30 or 31 days";
-    public static final String MESSAGE_BIRTHDAY5_CONSTRAINTS = "Not leap year, got Feb no 29,31 or 31 days";
+    public static final String MESSAGE_BIRTHDAY2_CONSTRAINTS = "Year must be greater than 0000";
+    public static final String MESSAGE_BIRTHDAY3_CONSTRAINTS = "Month must be between 01 to 12";
+    public static final String MESSAGE_BIRTHDAY4_CONSTRAINTS = "Day must be between 01 to 31";
+    public static final String MESSAGE_BIRTHDAY5_CONSTRAINTS = "Only month 01, 03, 05, 07, 08, 10, 12 have 31 days";
+    public static final String MESSAGE_BIRTHDAY6_CONSTRAINTS = "Feb do not have 30 or 31 days";
+    public static final String MESSAGE_BIRTHDAY7_CONSTRAINTS = "Not leap year, got Feb no 29,31 or 31 days";
 
     public static final String BIRTHDAY_VALIDATION_REGEX = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
+    public static final String NO_BIRTHDAY_DEFAULT = "00000000";
     public final String value;
     /*** * Validates given birthday.
     * *
@@ -43,41 +46,70 @@ public class Birthday {
     */
 
     public Birthday(String birthday) throws IllegalValueException {
-        String trimmedBirthday = (birthday != null) ? birthday : "01/01/2001";
-        if (birthday != null && !isValidBirthday(trimmedBirthday)) {
+        String trimmedBirthday = (birthday != null) ? birthday : "01/01/1991";
+
+        if (isValidBirthday(trimmedBirthday) && !birthday.equals("No birthday")) {
+            String yes2 = trimmedBirthday.replaceAll("[/]", "");
+
+            isValidBirthdayValue(yes2);
+
+            if (yes2.equals(NO_BIRTHDAY_DEFAULT)) {
+                this.value = "No birthday";
+            } else {
+                this.value = trimmedBirthday;
+            }
+        } else if (birthday.equals("No birthday")) {
+            this.value = "No birthday";
+        } else {
             throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
         }
-        if (isValidBirthday(trimmedBirthday)) {
-            String yes2 = trimmedBirthday.replaceAll("[/]", "");
-            int result = Integer.parseInt(yes2);
-            int year = result % 10000;
-            int month = ((result % 1000000) - year) / 10000;
-            int day = result / 1000000;
-            if (month > 13 || day > 32) {
-                throw new IllegalValueException(MESSAGE_BIRTHDAY2_CONSTRAINTS);
-            }
-            if ((day == 31) && ((month == 4) || (month == 6) || (month == 9) || (month == 11))) {
-                throw new IllegalValueException(MESSAGE_BIRTHDAY3_CONSTRAINTS);
-            } else if (month == 2) {
-                //leap year
-                if (year % 4 == 0) {
-                    if ((day == 30) || (day == 31)) {
-                        throw new IllegalValueException(MESSAGE_BIRTHDAY4_CONSTRAINTS);
-                    }
-                } else {
-                    if ((day == 29) || (day == 30) || (day == 31)) {
-                        throw new IllegalValueException(MESSAGE_BIRTHDAY5_CONSTRAINTS);
-                    }
-                }
-            }
-        }
-        this.value = trimmedBirthday;
     }
+
     /**
-     * * Returns if a given string is a valid person birthday.
+     * Returns if a given string is a valid person birthday.
      */
     public static boolean isValidBirthday(String test) {
         return test.matches(BIRTHDAY_VALIDATION_REGEX);
+    }
+
+    /**
+     * Check validity of input values
+     */
+
+    public static void isValidBirthdayValue(String birthdayString) throws IllegalValueException {
+
+        if (birthdayString.equals(NO_BIRTHDAY_DEFAULT)) {
+            return;
+        }
+
+        int result = Integer.parseInt(birthdayString);
+        int year = result % 10000;
+        int month = ((result % 1000000) - year) / 10000;
+        int day = result / 1000000;
+
+        if (year < 1) {
+            throw new IllegalValueException(MESSAGE_BIRTHDAY2_CONSTRAINTS);
+        } else if (month > 12 || month < 1) {
+            throw new IllegalValueException(MESSAGE_BIRTHDAY3_CONSTRAINTS);
+        } else if (day > 31 || day < 1) {
+            throw new IllegalValueException(MESSAGE_BIRTHDAY4_CONSTRAINTS);
+        }
+
+
+        if ((day == 31) && ((month == 4) || (month == 6) || (month == 9) || (month == 11))) {
+            throw new IllegalValueException(MESSAGE_BIRTHDAY5_CONSTRAINTS);
+        } else if (month == 2) {
+            //leap year
+            if ((year % 4) == 0) {
+                if ((day == 30) || (day == 31)) {
+                    throw new IllegalValueException(MESSAGE_BIRTHDAY6_CONSTRAINTS);
+                }
+            } else {
+                if ((day == 29) || (day == 30) || (day == 31)) {
+                    throw new IllegalValueException(MESSAGE_BIRTHDAY7_CONSTRAINTS);
+                }
+            }
+        }
     }
 
     @Override
@@ -100,7 +132,7 @@ public class Birthday {
 
 }
 ```
-###### /java/seedu/address/model/person/Person.java
+###### \java\seedu\address\model\person\Person.java
 ``` java
     @Override
     public Address getAddress() {
@@ -121,7 +153,7 @@ public class Birthday {
         return birthday.get();
     }
 ```
-###### /java/seedu/address/model/person/Person.java
+###### \java\seedu\address\model\person\Person.java
 ``` java
     @Override
     public ObjectProperty<Picture> pictureProperty() {
@@ -132,7 +164,7 @@ public class Birthday {
         return picture.get();
     }
 ```
-###### /java/seedu/address/model/person/Picture.java
+###### \java\seedu\address\model\person\Picture.java
 ``` java
 public class Picture {
 
@@ -178,7 +210,7 @@ public class Picture {
     }
 }
 ```
-###### /java/seedu/address/ui/PersonCard.java
+###### \java\seedu\address\ui\PersonCard.java
 ``` java
     /**
      * Menu list option: add image
@@ -211,7 +243,7 @@ public class Picture {
         }
     }
 ```
-###### /java/seedu/address/ui/PersonCard.java
+###### \java\seedu\address\ui\PersonCard.java
 ``` java
     /**
      * Initialize image for ever person
