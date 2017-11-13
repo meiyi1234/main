@@ -41,7 +41,7 @@ Responsibilities: Data + Testing
 
 === Teh Bee Yee
 image::meiyi.jpg[width="150", align="left"]
-{empty}[https://github.com/meiyi1234[github]]
+{empty}[https://github.com/meiyi1234[github]] [https://github.com/CS2103AUG2017-F10-B4/main/blob/master/docs/team/tehbeeyee.adoc[portfolio]]
 
 Role: Documentation +
 Responsibilities: Scheduling
