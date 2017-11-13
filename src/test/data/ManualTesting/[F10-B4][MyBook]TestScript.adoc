@@ -13,8 +13,16 @@ By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 1. Run the *[F10-B4][MyBook].jar* application to generate default files and folder. +
 2. Close the application. +
 3. Copy *[F10-B4][MyBook]SampleData.xml* to the generated *Data* folder. +
-4. Rename *[F10-B4][MyBook]SampleData.xml* to *addressbook.xml*. +
-5. Run the *[F10-B4][MyBook].jar* application to begin.
+4. Copy *[F10-B4][MyBook]SampleData2.xml* to the generated *Data* folder. +
+5. Duplicate *[F10-B4][MyBook]SampleData.xml* and replace it with *addressbook.xml*. +
+6. Run the *[F10-B4][MyBook].jar* application to begin.
+
+[NOTE]
+Data folder should now have 3 XML files, namely: +
+[F10-B4][MyBook]SampleData.xml, +
+[F10-B4][MyBook]SampleData2.xml +
+addressbook.xml
+
 
 == Project Testing
 
@@ -29,20 +37,7 @@ This testscript contains only testing cases for new features. Testing of origina
 [NOTE]
 **Expected GUI:** indicates the expected GUI changes.
 
-=== Persisting colored tag
-
-**Command:**
-
-* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
-* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
-
-Restart the program.
-
-**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
-
-=== Google Maps
-
-TODO:
+---
 
 === Add Functionality
 
@@ -63,15 +58,133 @@ TODO:
 **Expected:** person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
  same phone number, email, address and name as one of existing contact but has different birthday.
 
-=== Remark Functionality
+---
+
+=== Persisting colored tag
+
+**Command:**
+
+* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
+* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
+
+Restart the program.
+
+**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
+
+---
+
+=== Google Maps
+
+**Command:** +
+* clear
+* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney
+* gmap 1
+
+**Expected GUI:** +
+Displays the google map of `311, Clementi Ave 2` in the browser panel.
+
+**Command:** +
+* clear
+* add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25
+* add n/Alex Chew p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 30 Lorong 3 Serangoon Gardens, #02-25
+* add n/Alex Heng p/98765432 b/21/07/1991 e/johnd@example.com a/Blk 15 Geylang Street 29, #10-40, #02-25
+* gmap alex tan
+
+**Expected GUI:** +
+Displays google map of Alex Tan
+
+---
+
+=== Theme Changer
+
+**Command:** +
+* theme list
+
+**Expected :** +
+Display a list of themes
+
+**Command:** +
+* theme 2
+
+**Expected :** +
+Theme successfully changed to: Bootstrap3
+
+**Expected GUI:** +
+Changes to `Bootstrap3` theme
+
+**Command:** +
+* theme caspian
+
+**Expected :** +
+Theme successfully changed to: Caspian
+
+**Expected GUI:** +
+Changes to `Caspian` theme
+
+---
+
+=== Import
+
+**Command:** +
+* clear
+* import data/[F10-B4][MyBook]SampleData.xml
+
+**Expected :** +
+Addressbook successfully imported from: data/[F10-B4][MyBook]SampleData.xml
+
+**Expected GUI:** +
+Added 20 persons
+
+---
+
+=== Remark Function
 
 **Command:** remark 1 r/Likes to drink coffee +
-
 **Expected:** remark should be added
 
 **Command:** remark 1 r/ +which
 **Expected:** remark should be removed for the first person
 
-=== Feature 2
+---
 
-bla bla
+=== Find using different details
+
+* *Find `Tony Paker` and `Zed Toh` by `name`*
+** Command: `finds n/Tony Zed`
+** Expectation GUI: `Tony Paker` and `Zed Toh` listed.
+
+* *Find `Tony Paker` and `Zed Toh` by `phone number`*
+** Command: `list`
+** Command: `finds p/82315756 9237841`
+** Expectation GUI: `Tony Paker` and `Zed Toh` will be listed.
+
+* *Find `Tony Paker` and `Zed Toh` by `email`*
+** Command: `list`
+** Command: `finds e/tonyparker@example.com zedtoh@example.com`
+** Expectation GUI: `Tony Paker` and `Zed Toh` will be listed.
+
+* *Find `Tony Paker` and `Zed Toh` by `tag`*
+** Command: `list`
+** Command: `finds t/[classmates] [friends]`
+** Expectation GUI: `Tony Paker`, `Zed Toh` and 8 more people will be listed.
+
+---
+
+=== Person with important tag at the top
+
+* *Make `Zed Toh` to be at the top of list
+** Command: `list`
+** Expected GUI: Note that `Zed Toh` is at the most bottom
+** Command: `edit 20 t/friends Important `
+** Command: `list`
+** Expected GUI: `Zed Toh` appears at the top at index 1.
+
+* *Make `Bernice Yu` to be at the top of list
+** Command: `edit 3 t/Important friends`
+** Command: `list`
+** Expected GUI: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
+
+* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+** Command: `edit 5 t/Important family`
+** Command: `list`
+** Expected GUI: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
