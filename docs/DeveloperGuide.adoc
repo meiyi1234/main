@@ -1,4 +1,4 @@
-= AddressBook Level 4 - Developer Guide
+= MyBook - Developer Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -930,6 +930,36 @@ The `birthday` command is an improved version from `add` command. It allows user
 
 The user can use this command with 'b/dd/mm/yyyy'
 
+[source, java]
+----
+  public static final String BIRTHDAY_VALIDATION_REGEX = "\\d\\d/\\d\\d/\\d\\d\\d\\d";
+
+  public static boolean isValidBirthday(String test) {
+          return test.matches(BIRTHDAY_VALIDATION_REGEX);
+      }
+
+  public Birthday(String birthday) throws IllegalValueException {
+          String trimmedBirthday = (birthday != null) ? birthday : "01/01/1991";
+
+          if (isValidBirthday(trimmedBirthday) && !birthday.equals("No birthday")) {
+              String birthdayNew = trimmedBirthday.replaceAll("[/]", "");
+              isValidBirthdayValue(birthdayNew);
+              if (birthdayNew.equals(NO_BIRTHDAY_DEFAULT)) {
+                  this.value = "No birthday";
+              } else {
+                  this.value = trimmedBirthday;
+              }
+          } else if (birthday.equals("No birthday")) {
+              this.value = "No birthday";
+          } else {
+              throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
+          }
+      }
+
+----
+
+Person (s) with empty birthday filed will be showing "No birthday".
+
 ==== Design Considerations
 
 It is implemented to add birthday detail so that relevant to the user to identify the birthday for up coming event. i.e. if a user want to have an event they can identify who's birthday is on this month or next month.
@@ -950,6 +980,7 @@ The user can use size of 100X100 of file 'png','jpg' or 'jpeg'
 
 It is implemented to add photo detail so that relevant to the user to identify user. i.e. if both user have same/similar pronunciation of name.
 
+---
 //end::photo[]
 
 // tag::remark[]
@@ -968,6 +999,7 @@ image::RemarkLogicSequenceDiagram.png[width="750"]
 _Figure 3.14.1.1 : RemarkCommand parser sequence diagram_
 
 As we can see, `RemarkCommand` object is created after input has been validated from the `AddressBookParser`.
+We need to delete the previos Remark in order to add in a new remark for the persons.
 
 [source,java]
 ----
@@ -997,7 +1029,6 @@ a new list in "add" command without the remark command.
 **Pros:** Allows the user to take the important remark for the new person. +
 **Cons:** NIL.
 
----
 // end::remark[]
 
 == Documentation
