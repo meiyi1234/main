@@ -947,6 +947,7 @@ image::RemarkLogicSequenceDiagram.png[width="750"]
 _Figure 3.14.1.1 : RemarkCommand parser sequence diagram_
 
 As we can see, `RemarkCommand` object is created after input has been validated from the `AddressBookParser`.
+We need to delete the previos Remark in order to add in a new remark for the persons.
 
 [source,java]
 ----
