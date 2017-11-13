@@ -1,5 +1,6 @@
 package seedu.address.logic.commands;
 
+//@author meiyi1234
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_REMARK;
 
@@ -14,7 +15,7 @@ import seedu.address.model.person.Remark;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 
-//@author meiyi1234
+
 /**
  * Changes the remark of an existing person in the address book.
  */
