@@ -65,19 +65,19 @@ You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/doc
 
 === Person with important tag at the top
 
-* *Make `Zed Toh` to be at the top of list
+* *Make `Zed Toh` to be at the top of list*
 ** Command: `list`
 ** Expected Behaviour: Note that `Zed Toh` is at the most bottom
 ** Command: `edit 20 t/friends Important `
 ** Command: `list`
 ** Expected: `Zed Toh` appears at the top at index 1.
 
-* *Make `Bernice Yu` to be at the top of list
+* *Make `Bernice Yu` to be at the top of list*
 ** Command: `edit 3 t/Important friends`
 ** Command: `list`
 ** Expected: Note that `Bernice Yu` is at index 1 and `Zed Toh` is at index 2
 
-* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`
+* *Make `David Li` to be in between `Bernice Yu and `Zed Toh`*
 ** Command: `edit 5 t/Important family`
 ** Command: `list`
 ** Expected: Note that `Bernice Yu` is at index 1, `David Li` is at index 2 and `Zed Toh` is at index 3
