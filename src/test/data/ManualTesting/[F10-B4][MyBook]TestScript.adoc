@@ -1,8 +1,16 @@
+
 = [MyBook] Test Script
+
 :toc:
 :toc-placement: preamble
 :imagesDir: images
 :stylesDir: stylesheets
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+endif::[]
+:repoURL: https://github.com/CS2103AUG2017-F10-B4/main
 
 By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 
