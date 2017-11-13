@@ -7,9 +7,7 @@ import seedu.address.commons.core.EventsCenter;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.events.ui.DisplayGmapEvent;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.ParserUtil;
 import seedu.address.model.person.NameConsistsKeywordsPredicate;
 import seedu.address.model.person.ReadOnlyPerson;
 
@@ -52,20 +50,17 @@ public class GmapCommand extends Command {
         List<ReadOnlyPerson> lastShownList = model.getFilteredPersonList();
         if (!this.usingIndex) {
             lastShownList = model.getPersonListByPredicate(predicate);
-            try {
-                this.targetIndex = ParserUtil.parseIndex("1");
-            } catch (IllegalValueException ive) {
-                throw new CommandException(Messages.MESSAGE_INVALID_PERSON_NAME);
-            }
-        }
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            this.targetIndex = Index.fromZeroBased(model.getFilteredPersonList().indexOf(lastShownList.get(0)));
+        } else {
+            if (targetIndex.getZeroBased() >= lastShownList.size()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            }
         }
 
         EventsCenter.getInstance().post(new DisplayGmapEvent(targetIndex));
         return new CommandResult(String.format(MESSAGE_GMAP_PERSON_SUCCESS,
-            lastShownList.get(targetIndex.getZeroBased()).getName()));
+            lastShownList.get(0).getName()));
     }
 
     @Override

@@ -27,9 +27,9 @@ public class Birthday {
     */
 
     public Birthday(String birthday) throws IllegalValueException {
-        String trimmedBirthday = (birthday != null) ? birthday : "01/01/1991";
+        String trimmedBirthday = (birthday != null) ? birthday : "00/00/0000";
 
-        if (isValidBirthday(trimmedBirthday) && !birthday.equals("No birthday")) {
+        if (isValidBirthday(trimmedBirthday) && !trimmedBirthday.equals("No birthday")) {
             String yes2 = trimmedBirthday.replaceAll("[/]", "");
 
             isValidBirthdayValue(yes2);
@@ -39,9 +39,8 @@ public class Birthday {
             } else {
                 this.value = trimmedBirthday;
             }
-        } else if (birthday.equals("No birthday")) {
-            this.value = "No birthday";
         } else {
+            this.value = NO_BIRTHDAY_DEFAULT;
             throw new IllegalValueException(MESSAGE_BIRTHDAY_CONSTRAINTS);
         }
     }
