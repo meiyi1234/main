@@ -1,4 +1,6 @@
-= MyBook - Test Script
+
+= [MyBook] Test Script
+
 :toc:
 :toc-placement: preamble
 :imagesDir: images
@@ -10,147 +12,74 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/CS2103AUG2017-F10-B4/main
 
-By: `Team F10-B3`      Since: `Sep 2017`      Licence: `MIT`
+By: `Team F10-B4`      Since: `Aug 2017`      Licence: `MIT`
 
-== Introduction
-This documents
+*Welcome to the test script for MyBook application.*
 
-== Basic Commands
+== Project Configuration
 
-You may look at our https://github.com/CS2103AUG2017-F10-B4/main/blob/master/docs/UserGuide.adoc .It shows all the commands we have in the application.
+1. Run the *[F10-B4][MyBook].jar* application to generate default files and folder. +
+2. Close the application. +
+3. Copy *[F10-B4][MyBook]SampleData.xml* to the generated *Data* folder. +
+4. Rename *[F10-B4][MyBook]SampleData.xml* to *addressbook.xml*. +
+5. Run the *[F10-B4][MyBook].jar* application to begin.
 
-== Testing
+== Project Testing
 
-== Add Functionality
-
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should be added
-
-* `Command:` add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
-`Expected:` person should be added
-
-* `Command:` add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added
-
-* `Command:` add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
-`Expected:` person should not be added, duplicate contact (same name, phone, birthday, email and address)
-
-* `Command:` add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
-`Expected:` person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
- same phone number, email, address and name as one of existing contact but has different birthday.
-
-== List Function
-
-* `Command:` list
-`Expected:` Shows a list of all persons in the address book in sorted ascending alphabetical order.
-
-== Edit Functionality
-
-* `Command:` edit 1 n/Peter Tan p/98723432 b/02/07/1993 e/peterTan@example.com a/311, Clementi Ave 2, #02-25 +
-`Expected:` Person should be edited
-
-* `Command:` edit 2 n/Nicholas Tan
-`Expected:` Person should be edited
-
-* `Command:` edit 2 p/98122358
-`Expected:` Person should be edited
-
-* `Command:` edit 3 b/14/07/1998
-`Expected:` Person should be edited
-
-* `Command:` edit 3 e/nicholasTan@example.com
-`Expected:` Person should be edited
-
-* `Command:` edit 4 a/Blk 204 Serangoon Central, #13-06 Singapore 550204
-`Expected:` Person should be edited
-
-* `Command:` edit 4 r/running
-`Expected:` Person should not be edited
-
-
-== Find functionality
-
-* `Command:`
-`Expected:`
-
-* `Command:`
-`Expected:`
-
-
-== Remark Functionality
-
-* `Command:` remark 1 r/Likes to drink coffee +
-`Expected:` remark should be added
-
-* `Command:` remark 1 r/ +
-`Expected:` remark should be removed for the first person
-
-
-== Delete Functionality
-
-* `Command:`
-`Expected:`
-
-* `Command:`
-`Expected:`
-
-* `Command:`
-`Expected:`
-
-* `Command:`
-`Expected:`
-
-
-== Heading
-
-=== Subheading
-
-.Bulleted lists
-* *bold*
-** _italics_
-*** `code`
-** [red]#red#
-
-.Numbered lists
-. first
-.. first i
-.. first ii
-.. first iii
-. second
-. third
-.. third i
-... third i i
+This testscript contains only testing cases for new features. Testing of original features is **NOT** be included.
 
 [NOTE]
-====
-This is a note.
-====
+**Command:** indicates the text to be entered into commandline input box.
 
-[WARNING]
-====
-This is a warning.
-====
+[NOTE]
+**Expected:** indicates the expected text to be displayed at the result box.
 
-[role="details"]
-****
-This is a custom block.
-****
+[NOTE]
+**Expected GUI:** indicates the expected GUI changes.
 
+=== Persisting colored tag
 
-****
-This is a sidebar block.
-****
+**Command:**
 
-=== Subheading II
+* add n/John Doe p/98765432 t/colleague b/21/07/1991 e/johnd@example.com a/John street, block 123, #01-01 r/likes to swim
+* add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison b/21/07/1991 p/1234567 t/criminal
 
-This tests line break. +
-This should be on a new line.
+Restart the program.
 
-http://google.com[This] is a link to an external site.
+**Expected GUI**: Color tags should remain the same after program shuts down and initialize again.
 
-<<subheading, This>> is a link to the previous section.
+=== Google Maps
 
-image::Architecture.png[title="Architecture diagram", width="400"]
-____
-This is a quote block.
-____
+TODO:
+
+=== Add Functionality
+
+**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
+**Expected:** person should be added
+
+**Command:** add n/Bryen Ng p/98541222 b/10/01/1996 e/bryenNg@example.com a/Blk 14 Serangoon Road #08-12 t/friends +
+**Expected:** person should be added
+
+**Command:** add n/Linda Chua p/98324422 b/24/08/1994 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
+**Expected:** person should be added
+
+**Command:** add n/Alex Tan p/98765432 b/21/07/1991 e/johnd@example.com a/311, Clementi Ave 2, #02-25 r/Running t/friends t/owesMoney +
+**Expected:** person should not be added, duplicate contact (same name, phone, birthday, email and address)
+
+**`Command:** add n/Linda Chua p/98324422 b/06/02/1992 e/lindaChua@example.com a/Blk 204 Serangoon Central, #13-06 Singapore 550204 +
+
+**Expected:** person should be added, if one of this feature (name, phone, address, email and birthday)is different and the rest are the same. It can be added as
+ same phone number, email, address and name as one of existing contact but has different birthday.
+
+=== Remark Functionality
+
+**Command:** remark 1 r/Likes to drink coffee +
+
+**Expected:** remark should be added
+
+**Command:** remark 1 r/ +which
+**Expected:** remark should be removed for the first person
+
+=== Feature 2
+
+bla bla
